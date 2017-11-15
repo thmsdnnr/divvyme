@@ -1,0 +1,70 @@
+div#infoBox {
+  padding: 5px;
+  width: 220px;
+  height: auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Courier';
+  display: inline;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 0.9em;
+}
+
+#container {
+  margin: auto;
+  width: 900px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header {
+  padding: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid green;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header input {
+  width: 400px;
+  font-size: 1em;
+  font-family: Courier;
+}
+
+#header button {
+  width: 100px;
+  font-size: 1em;
+  font-family: Courier;
+  margin-left: 10px;
+}
+
+#map {
+  flex: 0 1 auto;
+  width: 600px;
+  height: 600px;
+  padding: 0px 10px;
+  border: 1px solid gold;
+}
+
+#directionsPanel {
+  flex: 0 1 auto;
+  padding: 0px 10px;
+  flex-flow: column;
+  justify-content: flex-start;
+  width: 200px;
+  height: 600px;
+  overflow-y: scroll;
+  border: 1px solid black;
+}
