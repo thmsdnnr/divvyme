@@ -84,9 +84,8 @@ function generateMapAndPlotStations() {
   let loader=document.getElementById('loader');
   if (loader) { loader.style.display='none'; }
   G.map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: G.myLoc, styles:mapStyles});
-  let marker = new google.maps.Marker({position: G.myLoc, map: G.map });
   new google.maps.BicyclingLayer().setMap(G.map);
-  S.filter(e=>(e.is_renting&&e.status==="IN_SERVICE"&&!e.testStation))
+  S.filter(e=>(e.is_renting&&e.status==="IN_SERVICE"&&!e.testStation&&e.availableBikes>0))
   .forEach(s=>{
     let distance=haversine({lat:G.myLoc.lat, lon:G.myLoc.lng},{lat: s.latitude, lon: s.longitude});
     distances.push({station:s, distance:distance});
