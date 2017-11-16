@@ -22,6 +22,9 @@ div#bigCont {
 }
 
 div#map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 300px;
   max-width: 800px;
   margin: auto;
@@ -58,4 +61,86 @@ div#infoBox {
   padding: 6px;
   width: 100%;
   height: auto;
+}
+
+div#loader {
+  flex: auto;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+.lds-dual-ring {
+  position: relative;
+  margin: auto;
+}
+.lds-dual-ring div {
+  margin: auto;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #5a1714 transparent #5a1714 transparent;
+  -webkit-animation: lds-dual-ring 5s linear infinite;
+  animation: lds-dual-ring 5s linear infinite;
+}
+.lds-dual-ring div:nth-child(2) {
+  width: 140px;
+  height: 140px;
+  top: 30px;
+  left: 30px;
+  border-color: transparent #bc2412 transparent #bc2412;
+  -webkit-animation: lds-dual-ring_reverse 5s linear infinite;
+  animation: lds-dual-ring_reverse 5s linear infinite;
+}
+.lds-double-ring {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }

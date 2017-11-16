@@ -79,6 +79,7 @@ function generateMapAndPlotStations() {
   updatePageText();
   let S=G.stations.stationBeanList;
   let distances=[];
+  document.getElementById('loader').style.display='none';
   G.map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: G.myLoc, styles:mapStyles});
   let marker = new google.maps.Marker({position: G.myLoc, map: G.map });
   new google.maps.BicyclingLayer().setMap(G.map);
