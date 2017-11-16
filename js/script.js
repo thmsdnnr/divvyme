@@ -40,6 +40,8 @@ function handleAddressSubmission(e) {
   e.preventDefault();
   addressToLatLon(document.querySelector('input#address').value).then((loc)=>{
     initMap({lat:loc.lat(), lng:loc.lng()})
+  }).catch((err)=>{
+    initMap(G.defaultPos);
   });
 }
 
@@ -79,7 +81,8 @@ function generateMapAndPlotStations() {
   updatePageText();
   let S=G.stations.stationBeanList;
   let distances=[];
-  document.getElementById('loader').style.display='none';
+  let loader=document.getElementById('loader');
+  if (loader) { loader.style.display='none'; }
   G.map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: G.myLoc, styles:mapStyles});
   let marker = new google.maps.Marker({position: G.myLoc, map: G.map });
   new google.maps.BicyclingLayer().setMap(G.map);
@@ -184,7 +187,14 @@ function addressToLatLon(address) {
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({address: address,bounds: city}, function(results, status) {
       if (status==='OK') { resolve(results[0].geometry.location); }
-      else { console.log('errorstatus', status); reject('Geocode was not successful for the following reason: ' + status); }
+      else {
+        alertDisplay({
+        type:'warning',
+        title:'Uh-oh!',
+        body:'We were unable to find this location with Google.'
+      });
+      reject('Geocode was not successful for the following reason: ' + status);
+    }
     });
   });
 }
@@ -197,7 +207,6 @@ function getStations() {
   return new Promise(function(resolve,reject) {
     fetch('https://cors-anywhere.herokuapp.com/https://feeds.divvybikes.com/stations/stations.json',
     {method:'GET', type:'jsonp'}).then(r=>r.json()).then(d=>{
-      console.log(d);
       resolve(d);
     });
   });
