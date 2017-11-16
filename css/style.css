@@ -1,0 +1,61 @@
+nav { box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22); }
+
+h1, h2, h3 {
+  font-family: 'Courier';
+  display: inline;
+  padding: 0px;
+}
+
+h1 { font-size: 1.1em; }
+h2 { font-size: 0.9em; }
+h3 { font-size: 0.9em; }
+
+div#message { display: none; }
+
+div#bigCont {
+  display: flex;
+  width: auto;
+  margin: auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+div#map {
+  min-width: 300px;
+  max-width: 800px;
+  margin: auto;
+  height: 400px;
+  padding: 0px 4px;
+  border: 1px solid black;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+div#dirPanelContainer {
+  display: none;
+  align-items: center;
+}
+
+div#directionsPanel {
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 300px;
+  height: 400px;
+  font-family: 'Courier';
+  font-size: 1em;
+}
+
+div#locSearch {
+  width: 300px;
+  margin: auto;
+  padding: 5px;
+}
+
+div#infoBox {
+  min-width: 140px;
+  margin-top: 10px;
+  padding: 6px;
+  width: 100%;
+  height: auto;
+}
